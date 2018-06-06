@@ -1,5 +1,5 @@
 /*
- * Centro de entrenamiento para Gryffindor
+ * Centro de entrenamiento Gryffindor
  */
 package Edificios;
 
