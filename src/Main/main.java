@@ -13,10 +13,10 @@ public class main {
     public static void main(String[] args){
        
      
-        Menu motor = Menu.getInstance();
+        Motor menu = Motor.getInstance();
          
         
-        motor.opcionesiniciales();
+        menu.mostrar();
       
          
          
