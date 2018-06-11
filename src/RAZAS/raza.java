@@ -6,15 +6,10 @@
 package RAZAS;
 import Edificios.centroMandoHogwarts;
 import Edificios.edificio;
-import Edificios.edificioFactory;
-
 /**
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
-public class Slytherin implements raza{
-     @Override
-   public edificio construir(String tipo){
-               return edificioFactory.getEdificio(tipo);
-    }
+public interface raza {
+    public edificio construir(String tipo);
 }

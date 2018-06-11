@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package RAZAS;
-
+import Edificios.centroMandoHogwarts;
+import Edificios.edificio;
+import Edificios.edificioFactory;
 /**
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
-public class Ravenclow {
+public class Ravenclow implements raza {
+   @Override
+   public edificio construir(String tipo){
+               return edificioFactory.getEdificio(tipo);
+    }
     
 }
