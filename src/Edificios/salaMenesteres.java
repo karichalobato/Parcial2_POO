@@ -18,6 +18,11 @@ public class salaMenesteres implements edificio {
     public int getVida() {
         return vida;
     }
+    
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
 }
     
 
