@@ -66,7 +66,7 @@ public class Escuadrones implements milicia {
         return this ;
     }
     
-    public Escuadrones build(){
+    public Escuadrones Builder(){
         return new Escuadrones(this);
     }
     

@@ -67,7 +67,7 @@ public class Especialistas implements milicia {
         return this ;
     }
     //Patron Builder
-    public Especialistas build(){
+    public Especialistas Builder(){
         return new Especialistas(this);
     }
     
