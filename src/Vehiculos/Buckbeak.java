@@ -1,13 +1,14 @@
 /*
- * 
+ * Es un animal hidrido que se obtiene al cruzar un caballo con un grifo. 
+ * Es nativo de Europa, aunque actualmente se encuentra en todo el mundo.
  */
 package Vehiculos;
 
 /**
  *
- * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
+ * @author UCA
  */
-public class Escoba implements vehiculo {
+public class Buckbeak implements vehiculo{
     private int vida,ataque;
 
     @Override
@@ -19,7 +20,6 @@ public class Escoba implements vehiculo {
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
-    
 
     @Override
     public int getVida() {
@@ -30,4 +30,7 @@ public class Escoba implements vehiculo {
     public void setVida(int vida) {
         this.vida = vida;
     }
+    
+    
+    
 }

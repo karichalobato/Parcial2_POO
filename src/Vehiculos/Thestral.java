@@ -1,13 +1,15 @@
 /*
- * 
+ * Un thestral es una variedad de caballo alado con un cuerpo esquelético, 
+   rostro de rasgos reptilianos y unas alas de aspecto curtido que recuerdan a las 
+   de un murciélago.
  */
 package Vehiculos;
 
 /**
  *
- * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
+ * @author UCA
  */
-public class Escoba implements vehiculo {
+public class Thestral implements vehiculo{
     private int vida,ataque;
 
     @Override
@@ -19,6 +21,7 @@ public class Escoba implements vehiculo {
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
+    
     
 
     @Override

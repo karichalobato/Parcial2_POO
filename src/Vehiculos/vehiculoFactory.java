@@ -12,10 +12,15 @@ package Vehiculos;
 public class vehiculoFactory {
     public static vehiculo getVehiculo(String tipo){
         switch(tipo){
-            case "VEHICULO1":
+            case "VEHICULO_GRIFFINDOR":
                 return new Escoba();
            
-            
+            case "VEHICULO_SLYTHERIN":
+                return new Thestral();
+                
+            case "VEHICULO_RAVENCLOW":
+                return new Buckbeak();
+                
         }
         return null;
     } 
