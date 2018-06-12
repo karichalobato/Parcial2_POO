@@ -9,11 +9,11 @@ package Recursos;
  *
  * @author UCA
  */
-public class Recur3_CromosDeOro implements recursos {
+public class Recur2_CortezaDeArbolVital implements recursos {
     private String nombre;
     private int cantidad; 
 
-    public Recur3_CromosDeOro(recursos_Builder Builder) {
+    public Recur2_CortezaDeArbolVital(recursos_Builder Builder) {
         this.nombre = Builder.nombre;
         this.cantidad =Builder.cantidad;
     }
@@ -52,8 +52,8 @@ public class Recur3_CromosDeOro implements recursos {
         return this ;
     }
     
-    public Recur3_CromosDeOro build(){
-        return new Recur3_CromosDeOro(this);
+    public Recur2_CortezaDeArbolVital build(){
+        return new Recur2_CortezaDeArbolVital(this);
     }
     
     }

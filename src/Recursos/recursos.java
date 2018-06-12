@@ -11,4 +11,10 @@ package Recursos;
  */
 public interface recursos {
     
+    public String getNombre();
+    public void setNombre(String nombre);
+
+    public int getCantidad();
+    public void setCantidad(int cantidad);
+    
 }

@@ -18,20 +18,22 @@ public class Recur1_GrageasBertriBott implements recursos {
         this.cantidad = Builder.cantidad;
     }
     
-    
-
+    @Override
     public String getNombre() {
         return nombre;
     }
 
+    @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    @Override
     public int getCantidad() {
         return cantidad;
     }
 
+    @Override
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
