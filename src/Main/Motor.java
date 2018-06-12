@@ -56,10 +56,10 @@ public class Motor {
     }
     
     public raza getraza(){
-        int opcionRaza = 5;
+        int opcionRaza = 4;
         Scanner read = new Scanner(System.in);
         
-        while(opcionRaza!=4){
+        while(opcionRaza!=3){
             menuRazas();
         
             try {
@@ -75,8 +75,6 @@ public class Motor {
                     case 3:
                         return razaFactory.getRaza("SLYTHRIN");
                         
-                    case 4:
-                        System.out.println("*************SALIENDO*************");
                     default:
                         System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
                         break;
