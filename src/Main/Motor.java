@@ -7,6 +7,7 @@ package Main;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import RAZAS.raza;
+import RAZAS.razaFactory;
 import java.util.Random;
 /**
  *
