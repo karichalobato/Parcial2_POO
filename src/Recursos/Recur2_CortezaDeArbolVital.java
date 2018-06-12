@@ -52,7 +52,7 @@ public class Recur2_CortezaDeArbolVital implements recursos {
         return this ;
     }
     
-    public Recur2_CortezaDeArbolVital build(){
+    public Recur2_CortezaDeArbolVital Builder(){
         return new Recur2_CortezaDeArbolVital(this);
     }
     

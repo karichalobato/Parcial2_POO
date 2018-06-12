@@ -52,7 +52,7 @@ public class Recur3_CromosDeOro implements recursos {
         return this ;
     }
     
-    public Recur3_CromosDeOro build(){
+    public Recur3_CromosDeOro Builder(){
         return new Recur3_CromosDeOro(this);
     }
     

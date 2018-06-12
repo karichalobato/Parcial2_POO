@@ -53,7 +53,7 @@ public class Recur1_GrageasBertriBott implements recursos {
         return this ;
     }
     
-    public Recur1_GrageasBertriBott build(){
+    public Recur1_GrageasBertriBott Builder(){
         return new Recur1_GrageasBertriBott(this);
     }
     
