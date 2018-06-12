@@ -31,6 +31,4 @@ public class Buckbeak implements vehiculo{
         this.vida = vida;
     }
     
-    
-    
 }
