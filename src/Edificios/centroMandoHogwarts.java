@@ -26,6 +26,7 @@ public vehiculo crearVehiculo(String tipo){
         return vida;
     }
 
+    @Override
     public void setVida(int vida) {
         this.vida = vida;
     }
