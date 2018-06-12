@@ -13,6 +13,6 @@ import Vehiculos.vehiculo;
 public interface edificio {
     public vehiculo crearVehiculo(String tipo);
     
-     public int getVida();
-  
+    public int getVida();
+    public void setVida(int vida);
 }
