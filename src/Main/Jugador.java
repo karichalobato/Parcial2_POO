@@ -16,7 +16,7 @@ public class Jugador {
     private String Nombre;
     public ArrayList<edificio> edificios;
     private raza raza;
-    public int lag=100;
+    
     
 
 public Jugador() {
