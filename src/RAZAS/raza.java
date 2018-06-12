@@ -12,4 +12,8 @@ import Edificios.edificio;
  */
 public interface raza {
     public edificio construir(String tipo);
+    
+    public String getNombre();
+    public void setNombre(String nombre);
+        
 }
