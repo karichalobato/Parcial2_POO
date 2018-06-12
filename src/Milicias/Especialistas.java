@@ -1,5 +1,5 @@
 /*
- * Magos sobresalientes de cada raza.
+ * Guerreros sobresalientes de cada raza.
  */
 package Milicias;
 
@@ -66,6 +66,7 @@ public class Especialistas implements milicia {
         this.nombre=nombre;
         return this ;
     }
+    //Patron Builder
     public Especialistas build(){
         return new Especialistas(this);
     }
