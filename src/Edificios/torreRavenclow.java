@@ -1,5 +1,5 @@
 /*
- * Centro de entrenamiento Ravenclow
+ * Centro de entrenamiento de las milicias de  Ravenclow
  */
 package Edificios;
 import Vehiculos.vehiculo;
