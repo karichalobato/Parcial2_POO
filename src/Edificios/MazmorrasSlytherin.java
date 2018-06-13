@@ -1,5 +1,5 @@
 /*
- * Centro de entrenamiento para la raza Slytherin
+ * Centro de entrenamiento para la milicia de  Slytherin
  */
 package Edificios;
 import Vehiculos.vehiculo;
