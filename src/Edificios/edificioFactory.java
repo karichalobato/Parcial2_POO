@@ -14,6 +14,12 @@ public class edificioFactory {
         switch(opcion){
             case "CENTRODEMANDOHOGWARTS":
                 return new centroMandoHogwarts.buildercentro().vida(2000).builder();
+                
+            case "CONSTRUCCIONMILICIAS":
+                return new contruirMilicias.builderConstMilicias().vida(150).Builder();
+                
+            case "CONSTRUCCIONVEHICULOS":
+                return new contruirVehiculos.builderConstVehiculos().vida(150).Builder();
            
             case "MAZMORRASSLYTHERIN":
                 return new MazmorrasSlytherin();
