@@ -10,10 +10,10 @@ package Milicias;
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
 public class miliciasFactory {
-    public static milicia getMilicia(String opcion,String milicia){
+    public static milicia getMilicia(String opcion,String miliciA){
         switch(opcion){
             case "GRIFFINDOR":
-                switch (milicia){
+                switch (miliciA){
                     case "ESCUADRONES":
                         return new Escuadrones.miliciaBuilder().nombre("GrageasBertriBott").ataque(10).vida(100).Builder();
                     case "ESPECIALISTA":
@@ -22,7 +22,7 @@ public class miliciasFactory {
                 }
             
             case "SLYTHERIN":
-                switch (milicia){
+                switch (miliciA){
                     case "ESCUADRONES":
                         return new Escuadrones.miliciaBuilder().nombre("GrageasBertriBott").ataque(10).vida(100).Builder();
                     case "ESPECIALISTAS":
@@ -31,7 +31,7 @@ public class miliciasFactory {
                 }
             
             case "RAVENCLOW":
-                switch (milicia){
+                switch (miliciA){
                     case "ESCUADRONES":
                         return new Escuadrones.miliciaBuilder().nombre("GrageasBertriBott").ataque(10).vida(100).Builder();
                     case "ESPECIALISTA":
