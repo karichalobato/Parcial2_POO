@@ -1,5 +1,5 @@
 /*
- * Centro de entrenamiento Gryffindor
+ * Centro de entrenamiento de la milicia de Gryffindor
  */
 package Edificios;
 import Vehiculos.vehiculo;
