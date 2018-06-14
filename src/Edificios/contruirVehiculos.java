@@ -31,6 +31,11 @@ public vehiculo crearVehiculo(String tipo){
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    @Override
+    public String getNombre() {
+        return "contruirVehiculos";
+    }
     
     public static class builderConstVehiculos{
         private int vida;
