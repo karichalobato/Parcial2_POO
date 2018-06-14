@@ -15,5 +15,8 @@ public interface vehiculo {
     
     public int getAtaque();
     public void setAtaque(int ataque);
+    
+    public String getNombre();
+    public void setNombre(String nombre);
         
 }
