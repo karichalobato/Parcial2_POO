@@ -3,11 +3,13 @@
  */
 package Milicias;
 
+
 /**
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
 public class Escuadrones implements milicia {
+    
     private int vida,ataque;
     private String nombre;
 
@@ -15,6 +17,7 @@ public class Escuadrones implements milicia {
         this.vida = Builder.vida;
         this.ataque = Builder.ataque;
         this.nombre = Builder.nombre;
+        
     }
     
     @Override
