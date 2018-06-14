@@ -15,4 +15,5 @@ public interface edificio {
     
     public int getVida();
     public void setVida(int vida);
+    String getNombre();
 }
