@@ -10,10 +10,21 @@ package Vehiculos;
  */
 public class Buckbeak implements vehiculo{
     private int vida,ataque;
+    private String nombre;
+
+    @Override
+    public String getNombre() {
+        return "Buckbeak";
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     @Override
     public int getAtaque() {
-        return ataque;
+        return 50;
     }
 
     @Override
@@ -23,7 +34,7 @@ public class Buckbeak implements vehiculo{
 
     @Override
     public int getVida() {
-        return vida;
+        return 10;
     }
 
     @Override

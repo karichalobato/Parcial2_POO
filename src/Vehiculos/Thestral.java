@@ -11,10 +11,22 @@ package Vehiculos;
  */
 public class Thestral implements vehiculo{
     private int vida,ataque;
+    private String nombre;
+    
+    
+    @Override
+    public String getNombre() {
+        return "Thestral";
+    }
 
     @Override
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    @Override
     public int getAtaque() {
-        return ataque;
+        return 100;
     }
 
     @Override
@@ -22,15 +34,15 @@ public class Thestral implements vehiculo{
         this.ataque = ataque;
     }
     
-    
-
     @Override
     public int getVida() {
-        return vida;
+        return 75;
     }
 
     @Override
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    
 }

@@ -9,10 +9,22 @@ package Vehiculos;
  */
 public class Escoba implements vehiculo {
     private int vida,ataque;
+    private String nombre;
+    
+    
+    @Override
+    public String getNombre() {
+        return "Escoba";
+    }
 
     @Override
+    public void setNombre(String nombre) {
+       this.nombre = nombre; 
+    }
+    
+    @Override
     public int getAtaque() {
-        return ataque;
+        return 10;
     }
 
     @Override
@@ -23,11 +35,13 @@ public class Escoba implements vehiculo {
 
     @Override
     public int getVida() {
-        return vida;
+        return 25;
     }
 
     @Override
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    
 }
