@@ -4,14 +4,19 @@
  * and open the template in the editor.
  */
 package Main;
+import Edificios.edificio;
+import Edificios.edificioFactory;
 import Milicias.milicia;
 import Milicias.miliciasFactory;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import RAZAS.raza;
 import RAZAS.razaFactory;
+import Recursos.recursos;
+import Recursos.recursosFactory;
 import Vehiculos.vehiculo;
 import Vehiculos.vehiculoFactory;
+import java.util.ArrayList;
 import java.util.Random;
 /**
  *
@@ -20,6 +25,11 @@ import java.util.Random;
 public class Motor {
     
     private static Motor creador;
+    Fase fase = new Fase();
+    String jugador1,jugador2;
+
+    ArrayList<edificio> edificioRazaGryffindor = new ArrayList<>(),edificioRazaSlytherin = new ArrayList<>(),edificioRazaRavenclow = new ArrayList<>();
+    //ArrayList<vehiculo> vehiculoGryffindor = new ArrayList<>(),vehiculoSlytherin = new ArrayList<>(),vehiculoRavenclow = new ArrayList<>(); 
 
     private Motor() {
     }
@@ -37,13 +47,11 @@ public class Motor {
         System.out.println("| \t******* KarichaLobato`sWorld *******               |");
         System.out.println("| \t\t1. Construir Edificios                     |");
         System.out.println("| \t\t2. Ver edificios disponibles para acciones |");
-        System.out.println("| \t\t3. Contruir Milicias                       |");
-        System.out.println("| \t\t4. Entrenar Milicias                       |");
-        System.out.println("| \t\t5. Curar Milicias                          |");
-        System.out.println("| \t\t6. Crear vehiculos                         |");
-        System.out.println("| \t\t7. Ver recursos disponibles                |");
-        System.out.println("| \t\t8. Pasar de turno                          |");
-        System.out.println("| \t\t9. SALIR                                   |");
+        System.out.println("| \t\t3. Entrenar Milicias                       |");
+        System.out.println("| \t\t4. Curar Milicias                          |");
+        System.out.println("| \t\t5. Crear vehiculo                          |");
+        System.out.println("| \t\t6. Ver recursos disponibles                |");
+        System.out.println("| \t\t7+. Pasar de turno                         |");
         System.out.println("-----------------------------------------------------------");
     }
     
@@ -70,14 +78,14 @@ public class Motor {
         System.out.println("| \t¡AQUI PUEDES ELEGIR EL EDIFICIO QUE DESEES CONSTRUIR! |");
         System.out.println("| \t\t1. Centro de entrenamiento                    |");
         System.out.println("| \t\t2. Centro de curamiento                       |");
-        System.out.println("| \t\t3. Construir vehiculo                         |");
-        System.out.println("| \t\t4. Construir milicias                         |");
+        System.out.println("| \t\t3. Construir milicias                         |");
+        System.out.println("| \t\t4. Construir vehiculos                         |");
         System.out.println("---------------------------------------------------------------");
     }
     
     public void menuMilicias(){
         System.out.println("---------------------------------------------------------------");   
-        System.out.println("| \t¡AQUI PUEDES ELEGIR LA MILICIA QUE TE CONVEGA SEGUN TU CASA! |");
+        System.out.println("| ¡AQUI PUEDES ELEGIR LA MILICIA QUE TE CONVEGA SEGUN TU CASA! |");
         System.out.println("| \t\t1. Griffindor - Escuadrones                    |");
         System.out.println("| \t\t2. Griffindor - Especialistas                  |");
         System.out.println("| \t\t3. Ravenclow - Escuadrones                     |");
@@ -87,22 +95,42 @@ public class Motor {
         System.out.println("---------------------------------------------------------------");
     }
     
-    public void Milicias(){
-        System.out.println("----------------------------------------------------------");
-        System.out.println("| \t¡DE ESTE TIPO PUEDEN SER TUS MILICIAS!           |");
-        System.out.println("| \t\t1. Escuadrones                           |");
-        System.out.println("| \t\t2. Especialistas                         |");
-        System.out.println("----------------------------------------------------------");
+    public void menuRecursos(){
+        System.out.println("---------------------------------------------------------------");   
+        System.out.println("| ¡AQUI PUEDES ELEGIR TUS RECURSOS SEGUN TU CASA! |");
+        System.out.println("| \t\t1. Griffindor - Recurso 1                      |");
+        System.out.println("| \t\t2. Griffindor - Recurso 2                      |");
+        System.out.println("| \t\t3. Griffindor - Recurso 3                      |");
+        System.out.println("| \t\t4. Slytherin -  Recurso 1                      |");
+        System.out.println("| \t\t5. Slytherin -  Recurso 2                      |");
+        System.out.println("| \t\t6. Slytherin -  Recurso 3                      |");
+        System.out.println("| \t\t7. Ravenclow -  Recurso 1                      |");
+        System.out.println("| \t\t8. Ravenclow -  Recurso 2                      |");
+        System.out.println("| \t\t9. Ravenclow -  Recurso 3                      |");
+        System.out.println("---------------------------------------------------------------");
     }
     
     public void menuVehiculos(){
         System.out.println("----------------------------------------------------------");
         System.out.println("| \t¡AQUI PUEDES ELEGIR EL VEHICULO QUE DESEES! |");
         System.out.println("| \t\t1. Griffindor - Escoba          |");
-        System.out.println("| \t\t1. Slytherin - Thestral         |");
-        System.out.println("| \t\t1. Ravenclow - Buckbeak          |");
+        System.out.println("| \t\t2. Slytherin - Thestral         |");
+        System.out.println("| \t\t3. Ravenclow - Buckbeak         |");
         System.out.println("----------------------------------------------------------");
     }
+    
+    public void menuEdificiosRazas(){
+        System.out.println("----------------------------------------------------------");
+        System.out.println("| \t¡AQUI PUEDES ELEGIR EL EDIFICIO QUE DESEES! |");
+        System.out.println("| \t\t1. Gryffindor - Centro de entrenamiento   |");
+        System.out.println("| \t\t2. Gryffindor - Centro de curación        |");
+        System.out.println("| \t\t3. Slytherin -  Centro de entrenamiento   |");
+        System.out.println("| \t\t4. Slytherin -  Centro de curación        |");
+        System.out.println("| \t\t5. Ravenclow -  Centro de entrenamiento   |");
+        System.out.println("| \t\t6. Ravenclow -  Centro de curación        |");
+        System.out.println("----------------------------------------------------------");
+    }
+    
     
     public raza getraza(){
         int opcionRaza = 4;
@@ -119,10 +147,10 @@ public class Motor {
                         return razaFactory.getRaza("GRYFFINDOR");
                         
                     case 2:
-                        return razaFactory.getRaza("RAVENCLOW");
+                        return razaFactory.getRaza("SLYTHRIN");
                         
                     case 3:
-                        return razaFactory.getRaza("SLYTHRIN");
+                        return razaFactory.getRaza("RAVENCLOW");
                         
                     default:
                         System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
@@ -138,7 +166,7 @@ public class Motor {
         return null;
     }
     
-    public milicia getmilicia(){
+    public milicia getMilicia(Jugador jugadores){
         int opcionMilicia = 7;
         Scanner read = new Scanner(System.in);
         
@@ -149,22 +177,22 @@ public class Motor {
                 opcionMilicia = read.nextInt();
                 switch (opcionMilicia){
                     case 1:
-                        return miliciasFactory.getMilicia("GRIFFINDOR","ESCUADRONES");
+                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                     
                     case 2:
-                        return miliciasFactory.getMilicia("GRIFFINDOR","ESPECIALISTAS");
+                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     case 3:
-                        return miliciasFactory.getMilicia("RAVENCLOW","ESCUADRONES");
+                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 4:
-                        return miliciasFactory.getMilicia("RAVENCLOW","ESPECIALISTAS");
+                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     case 5:
-                        return miliciasFactory.getMilicia("SLYTHRIN","ESCUADRONES");
+                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 6:
-                        return miliciasFactory.getMilicia("SLYTHRIN","ESPECIALISTAS");
+                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     default:
                         System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
@@ -180,7 +208,7 @@ public class Motor {
         return null;
     }
     
-    public vehiculo getvehiculo(){
+    public vehiculo getVehiculo(Jugador jugadores){
         int opcionVehiculo = 4;
         Scanner read = new Scanner(System.in);
         
@@ -213,25 +241,105 @@ public class Motor {
         return null;
     }
     
-    public void menuFases(Jugador jugador) {
-        int opcion =5;
+    public void getEdificio(){
+        int opcionEdificioRaza = 7;
         Scanner read = new Scanner(System.in);
-        while (opcion!=4) {
+        
+        while(opcionEdificioRaza!=6){
+            menuEdificiosRazas();      
+            try {
+                System.out.print("\tOpcion a elegir: ");
+                opcionEdificioRaza = read.nextInt();
+                switch (opcionEdificioRaza){
+                    case 1:
+                        edificioRazaGryffindor.add(edificioFactory.getEdificio("SALAMENESTERES"));
+                        System.out.println("Se ha creado tu edificio de entrenamiento Gryffindor");
+                        break;
+                        
+                    case 2:
+                        edificioRazaGryffindor.add(edificioFactory.getEdificio("SALACOMUNGRYFFINDOR"));
+                        System.out.println("Se ha creado tu edificio de sanamiento Gryffindor");
+                        break;
+                    case 3:
+                        edificioRazaSlytherin.add(edificioFactory.getEdificio("MAZMORRASSLYTHERIN"));
+                        System.out.println("Se ha creado tu edificio de entrenamiento Slytherin");
+                        break;
+                        
+                    case 4:
+                        edificioRazaSlytherin.add(edificioFactory.getEdificio("SALACOMUNSLYTHERIN"));
+                        System.out.println("Se ha creado tu edificio de sanamiento Slytherin");
+                        break;
+                        
+                    case 5:
+                        edificioRazaRavenclow.add(edificioFactory.getEdificio("TORRERAVENCLOW"));
+                        System.out.println("Se ha creado tu edificio entrenamiento de Ravenclow");
+                        break;
+                        
+                    case 6:
+                        edificioRazaRavenclow.add(edificioFactory.getEdificio("SALACOMUNRAVENCLOW"));
+                        System.out.println("Se ha creado tu edificio de sanamiento de Ravenclow");
+                        break;
+                        
+                    default:
+                        System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
+                        break;
+                }
+                
+            }catch (InputMismatchException e) {
+                System.err.println("Por favor, Ingrese un número de las opciones del menú ");
+                read.nextLine();
+            }
+            
+        }
+
+    }
+    
+    public void MostrarEdi(Jugador jugadores){
+        switch(jugadores.getRaza().getNombre()){
+            case "GRYFFINDOR":
+                for(edificio edi: edificioRazaGryffindor){
+                    System.out.println(edi.getNombre());
+                }
+                break;
+            case "SLYTHRIN":
+                for(edificio edi: edificioRazaSlytherin){
+                    System.out.println(edi.getNombre());
+                }
+                break;
+            case "RAVENCLOW":
+                for(edificio edi: edificioRazaRavenclow){
+                    System.out.println(edi.getNombre());
+                }
+                break;     
+        }
+
+    }
+    
+    public void menuFases(Jugador jugadores) {
+        int opcion =8;
+        Scanner read = new Scanner(System.in);
+        while (opcion!=7) {
             opcionesDeJugada();
             try {
                 System.out.print("\tOpcion a elegir: ");
                 opcion = read.nextInt();
                 switch (opcion) {
                     case 1:
-                        menuEdificios();
+                        getEdificio();
                         break;
                     case 2:
-                        System.out.println("Aun no agrego el metodo que va aqui");
+                        MostrarEdi(jugadores);
                         break;
                     case 3:
-                        Milicias();
-                   
+                        fase.milicias.add(getMilicia(jugadores));
+                        System.out.println(fase.milicias.get(0).getNombre()+ " "+ fase.milicias.get(0).getAtaque());
+                        RecursosActuales(jugadores);
                         break;
+                    case 4:
+                        break;
+                    case 5:
+                        fase.vehiculos.add(getVehiculo(jugadores));
+                        System.out.println("El nombre de tu vehiculo es: "+fase.vehiculos.get(0).getNombre()+ "\nDe ataque tiene: "+fase.vehiculos.get(0).getAtaque()+ "\ny de vida tiene: "+fase.vehiculos.get(0).getVida());
                     default:
                         System.err.println("Opción inválida. Intente de nuevo. ");
 
@@ -243,10 +351,19 @@ public class Motor {
         }
 
     }
+    public recursos getRecursos(Jugador jugadores, String recurso){
+        return recursosFactory.getRecursos(jugadores.getRaza().getNombre(),recurso);
+            
+        }
+ 
+    public void RecursosActuales(Jugador jugadores){
+        System.out.println("RECURSO 1: "+getRecursos(jugadores, "RECURSO1").getCantidad());
+        System.out.println("RECURSO 2: "+getRecursos(jugadores, "RECURSO2").getCantidad());
+        System.out.println("RECURSO 3: "+getRecursos(jugadores, "RECURSO3").getCantidad());
+    }
     
     public  void mostrar() {
-        Fase fase = new Fase();
-        String jugador1,jugador2;
+       
         Bienvenida();
         fase.jugadores.add(new Jugador());
         fase.jugadores.add(new Jugador());
