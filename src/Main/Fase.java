@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Main;
+import Edificios.edificio;
 import Milicias.milicia;
 import Vehiculos.vehiculo;
 import java.util.ArrayList;
@@ -16,11 +17,13 @@ public class Fase {
     public ArrayList<Jugador> jugadores;
     public ArrayList<milicia> milicias;
     public ArrayList<vehiculo> vehiculos;
+    public ArrayList<edificio> edificios;
     
     public Fase() {
         jugadores = new ArrayList<>();
         milicias = new ArrayList<>();
         vehiculos = new ArrayList<>();
+        edificios = new ArrayList<>();
         
     }
     
@@ -37,4 +40,12 @@ public class Fase {
     public void setCar(vehiculo nuevo){
         vehiculos.add(nuevo);
     }
+    
+    public ArrayList<edificio> edis (){
+        return edificios;
+    }
+    public void setEdis (edificio ataque){
+        edificios.add(ataque);
+    }
+    
 }
