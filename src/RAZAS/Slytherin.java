@@ -15,8 +15,9 @@ import Edificios.edificioFactory;
 public class Slytherin implements raza{
     private String nombre;
 
+    @Override
     public String getNombre() {
-        return nombre;
+        return "SLYTHRIN";
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Gryffindor implements raza {
 
     @Override
     public String getNombre() {
-        return nombre;
+        return "GRYFFINDOR";
     }
 
     @Override

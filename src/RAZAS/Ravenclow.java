@@ -17,7 +17,7 @@ public class Ravenclow implements raza {
 
     @Override
     public String getNombre() {
-        return nombre;
+        return "RAVENCLOW";
     }
 
     @Override
