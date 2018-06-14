@@ -24,5 +24,10 @@ public class torreRavenclow implements edificio {
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    @Override
+    public String getNombre() {
+      return "torreRavenclow" ; 
+    }
 }
 
