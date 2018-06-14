@@ -12,7 +12,7 @@ package Recursos;
 public class recursosFactory {
     public static recursos getRecursos(String opcion,String recurso){
         switch(opcion){
-            case "GRIFFINDOR":
+            case "GRYFFINDOR":
                 switch (recurso){
                     case "RECURSO1":
                         return new Recur1_GrageasBertriBott.recursos_Builder().nombre("GrageasBertriBott").cantidad(600).Builder();
@@ -22,7 +22,7 @@ public class recursosFactory {
                         return new Recur3_CromosDeOro.recursos_Builder().nombre("CromosDeOro").cantidad(20).Builder();
                 }
             
-            case "SLYTHERIN":
+            case "SLYTHRIN":
                 switch (recurso){
                     case "RECURSO1":
                         return new Recur1_GrageasBertriBott.recursos_Builder().nombre("GrageasBertriBott").cantidad(600).Builder();
