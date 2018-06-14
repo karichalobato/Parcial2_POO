@@ -30,6 +30,11 @@ public vehiculo crearVehiculo(String tipo){
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    @Override
+    public String getNombre() {
+       return "centroMandoHogwarts"; 
+    }
     
     public static class buildercentro{
         private int vida;
