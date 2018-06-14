@@ -20,7 +20,7 @@ public class Recur2_CortezaDeArbolVital implements recursos {
 
     @Override
     public String getNombre() {
-        return nombre;
+        return "CortezaDeArbolVital";
     }
 
     @Override

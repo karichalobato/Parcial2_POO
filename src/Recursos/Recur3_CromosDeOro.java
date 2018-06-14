@@ -20,7 +20,7 @@ public class Recur3_CromosDeOro implements recursos {
 
     @Override
     public String getNombre() {
-        return nombre;
+        return "CromosDeOro";
     }
 
     @Override

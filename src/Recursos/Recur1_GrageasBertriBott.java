@@ -20,7 +20,7 @@ public class Recur1_GrageasBertriBott implements recursos {
     
     @Override
     public String getNombre() {
-        return nombre;
+        return "GrageasBertriBott";
     }
 
     @Override
