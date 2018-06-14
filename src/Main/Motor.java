@@ -51,7 +51,7 @@ public class Motor {
         System.out.println("| \t\t4. Curar Milicias                          |");
         System.out.println("| \t\t5. Crear vehiculo                          |");
         System.out.println("| \t\t6. Ver recursos disponibles                |");
-        System.out.println("| \t\t7+. Pasar de turno                         |");
+        System.out.println("| \t\t7. Pasar de turno                         |");
         System.out.println("-----------------------------------------------------------");
     }
     
@@ -244,8 +244,8 @@ public class Motor {
     public void getEdificio(){
         int opcionEdificioRaza = 7;
         Scanner read = new Scanner(System.in);
-        
-        while(opcionEdificioRaza!=6){
+        boolean bandera = true;
+        while(bandera == true){
             menuEdificiosRazas();      
             try {
                 System.out.print("\tOpcion a elegir: ");
@@ -254,30 +254,36 @@ public class Motor {
                     case 1:
                         edificioRazaGryffindor.add(edificioFactory.getEdificio("SALAMENESTERES"));
                         System.out.println("Se ha creado tu edificio de entrenamiento Gryffindor");
+                        bandera = false;
                         break;
                         
                     case 2:
                         edificioRazaGryffindor.add(edificioFactory.getEdificio("SALACOMUNGRYFFINDOR"));
                         System.out.println("Se ha creado tu edificio de sanamiento Gryffindor");
+                        bandera = false;
                         break;
                     case 3:
                         edificioRazaSlytherin.add(edificioFactory.getEdificio("MAZMORRASSLYTHERIN"));
                         System.out.println("Se ha creado tu edificio de entrenamiento Slytherin");
+                        bandera = false;
                         break;
                         
                     case 4:
                         edificioRazaSlytherin.add(edificioFactory.getEdificio("SALACOMUNSLYTHERIN"));
                         System.out.println("Se ha creado tu edificio de sanamiento Slytherin");
+                        bandera = false;
                         break;
                         
                     case 5:
                         edificioRazaRavenclow.add(edificioFactory.getEdificio("TORRERAVENCLOW"));
                         System.out.println("Se ha creado tu edificio entrenamiento de Ravenclow");
+                        bandera = false;
                         break;
                         
                     case 6:
                         edificioRazaRavenclow.add(edificioFactory.getEdificio("SALACOMUNRAVENCLOW"));
                         System.out.println("Se ha creado tu edificio de sanamiento de Ravenclow");
+                        bandera = false;
                         break;
                         
                     default:
@@ -317,8 +323,9 @@ public class Motor {
     
     public void menuFases(Jugador jugadores) {
         int opcion =8;
+        boolean bandera = true;
         Scanner read = new Scanner(System.in);
-        while (opcion!=7) {
+        while (bandera == true) {
             opcionesDeJugada();
             try {
                 System.out.print("\tOpcion a elegir: ");
@@ -326,20 +333,29 @@ public class Motor {
                 switch (opcion) {
                     case 1:
                         getEdificio();
+                        bandera = false;
                         break;
                     case 2:
                         MostrarEdi(jugadores);
+                        bandera = false;
                         break;
                     case 3:
                         fase.milicias.add(getMilicia(jugadores));
                         System.out.println(fase.milicias.get(0).getNombre()+ " "+ fase.milicias.get(0).getAtaque());
                         RecursosActuales(jugadores);
+                        bandera = false;
                         break;
                     case 4:
                         break;
                     case 5:
                         fase.vehiculos.add(getVehiculo(jugadores));
                         System.out.println("El nombre de tu vehiculo es: "+fase.vehiculos.get(0).getNombre()+ "\nDe ataque tiene: "+fase.vehiculos.get(0).getAtaque()+ "\ny de vida tiene: "+fase.vehiculos.get(0).getVida());
+                        bandera = false;
+                        break;
+                    case 6:
+                        RecursosActuales(jugadores);
+                        bandera = false;
+                        break;
                     default:
                         System.err.println("Opción inválida. Intente de nuevo. ");
 
