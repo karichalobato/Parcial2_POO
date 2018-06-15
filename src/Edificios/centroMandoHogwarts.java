@@ -3,7 +3,9 @@
  */
 package Edificios;
 
+import Recursos.recursos;
 import Vehiculos.vehiculo;
+import java.util.ArrayList;
 
 
 /**
@@ -12,9 +14,15 @@ import Vehiculos.vehiculo;
  */
 public class centroMandoHogwarts implements edificio{
     private int vida = 500;
+    public ArrayList<recursos> recur_1;
+    public ArrayList<recursos> recur_2;
+    public ArrayList<recursos> recur_3;
 
     public centroMandoHogwarts(buildercentro builder) {
         this.vida=builder.vida;
+        recur_1 =new ArrayList<>();
+        recur_2 =new ArrayList<>();
+        recur_3 =new ArrayList<>();
     }
     
 @Override
