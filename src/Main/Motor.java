@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * La clase Motor es la que se encarga de controlar practicamente todo el juego y esta usando todas las demás clases
+creadas con AbstractFactory y Builder.
  */
 package Main;
 import Edificios.edificio;
@@ -71,8 +70,8 @@ public class Motor {
         System.out.println("| \t\t2. Griffindor - Especialistas                  |");
         System.out.println("| \t\t3. Slytherin - Escuadrones                     |");
         System.out.println("| \t\t4. Slytherin - Especialistas                   |");
-        System.out.println("| \t\t5. Slytherin - Escuadrones                     |");
-        System.out.println("| \t\t6. Slytherin - Especialistas                   |");
+        System.out.println("| \t\t5. Ravenclow - Escuadrones                     |");
+        System.out.println("| \t\t6. Ravenclow - Especialistas                   |");
         System.out.println("---------------------------------------------------------------");
     }
     
@@ -102,20 +101,8 @@ public class Motor {
         System.out.println("| \t\t2. Griffindor - Especialistas                  |");
         System.out.println("| \t\t3. Slytherin - Escuadrones                     |");
         System.out.println("| \t\t4. Slytherin - Especialistas                   |");
-        System.out.println("| \t\t5. Slytherin - Escuadrones                     |");
-        System.out.println("| \t\t6. Slytherin - Especialistas                   |");
-        System.out.println("---------------------------------------------------------------");
-    }
-    
-    public void menuAtacarMilicias(){
-        System.out.println("---------------------------------------------------------------");   
-        System.out.println("| ¡AQUI PUEDES ELEGIR LA MILICIA QUE DESEES ATACAR! |");
-        System.out.println("| \t\t1. Griffindor - Escuadrones                    |");
-        System.out.println("| \t\t2. Griffindor - Especialistas                  |");
-        System.out.println("| \t\t3. Slytherin - Escuadrones                     |");
-        System.out.println("| \t\t4. Slytherin - Especialistas                   |");
-        System.out.println("| \t\t5. Slytherin - Escuadrones                     |");
-        System.out.println("| \t\t6. Slytherin - Especialistas                   |");
+        System.out.println("| \t\t5. Ravenclow - Escuadrones                     |");
+        System.out.println("| \t\t6. Ravenclow - Especialistas                   |");
         System.out.println("---------------------------------------------------------------");
     }
     
@@ -168,7 +155,7 @@ public class Motor {
                 opcionRaza = read.nextInt();
                 switch (opcionRaza){
                     case 1:
-                        return razaFactory.getRaza("GRYFFINDOR");
+                         return razaFactory.getRaza("GRYFFINDOR");
                         
                     case 2:
                         return razaFactory.getRaza("SLYTHRIN");
@@ -307,7 +294,7 @@ public class Motor {
         return null;
     }
     
-    public void getEdificio(){
+    public void getEdificio(Jugador jugdores){
         int opcionEdificioRaza = 7;
         Scanner read = new Scanner(System.in);
         boolean bandera = true;
@@ -387,65 +374,40 @@ public class Motor {
 
     }
     
-    public edificio getEdificioAtacar(Jugador jugadores){
-        int opcionEdificioRaza = 7;
-        Scanner read = new Scanner(System.in);
-        boolean bandera = true;
-        while(bandera == true){
-            menuEdificiosRazas();      
-            try {
-                System.out.print("\tOpcion a elegir: ");
-                opcionEdificioRaza = read.nextInt();
-                switch (opcionEdificioRaza){
-                    case 1:
-                        edificioRazaGryffindor.add(edificioFactory.getEdificio("SALAMENESTERES"));
-                        System.out.println("El edificio edificio ha sido atacado");
-                        bandera = false;
-                        break;
-                        
-                    case 2:
-                        edificioRazaGryffindor.add(edificioFactory.getEdificio("SALACOMUNGRYFFINDOR"));
-                        System.out.println("El edificio ha sido atacado");
-                        bandera = false;
-                        break;
-                    case 3:
-                        edificioRazaSlytherin.add(edificioFactory.getEdificio("MAZMORRASSLYTHERIN"));
-                        System.out.println("El edificio ha sido atacado");
-                        bandera = false;
-                        break;
-                        
-                    case 4:
-                        edificioRazaSlytherin.add(edificioFactory.getEdificio("SALACOMUNSLYTHERIN"));
-                        System.out.println("El edificio ha sido atacado");
-                        bandera = false;
-                        break;
-                        
-                    case 5:
-                        edificioRazaRavenclow.add(edificioFactory.getEdificio("TORRERAVENCLOW"));
-                        System.out.println("EL edificio ha sido atacado");
-                        bandera = false;
-                        break;
-                        
-                    case 6:
-                        edificioRazaRavenclow.add(edificioFactory.getEdificio("SALACOMUNRAVENCLOW"));
-                        System.out.println("EL edificio ha sido atacado");
-                        bandera = false;
-                        break;
-                        
-                    default:
-                        System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
-                        break;
+    public void AtacarEdi(Jugador jugadores){
+        
+        switch(jugadores.getRaza().getNombre()){
+            case "GRYFFINDOR":
+                if(edificioRazaGryffindor.get(0).getVida()==100){
+                    System.out.println("Te queda de vida: ");
+                    System.out.println(edificioRazaGryffindor.get(0).getVida()-ataque + " Atacaste a: "+ edificioRazaGryffindor.get(0).getNombre());
                 }
-                
-            }catch (InputMismatchException e) {
-                System.err.println("Por favor, Ingrese un número de las opciones del menú ");
-                read.nextLine();
-            }
-            
+                else{
+                    System.out.println("asas");
+                }
+                break;
+            case "SLYTHRIN":
+                if(edificioRazaSlytherin.get(0).getVida()==100){
+                    System.out.println("Te queda de vida: ");
+                    System.out.println(edificioRazaSlytherin.get(0).getVida()-ataque + " Atacaste a: "+edificioRazaSlytherin.get(0).getNombre());
+                }
+                else{
+                    System.out.println("asas");
+                }
+                break;
+            case "RAVENCLOW":
+                if(edificioRazaRavenclow.get(0).getVida()==100){
+                    System.out.println("Te queda de vida: ");
+                    System.out.println(edificioRazaRavenclow.get(0).getVida()-ataque + " Atacaste a: "+edificioRazaRavenclow.get(0).getNombre());
+                }
+                else{
+                    System.out.println("asas");
+                }
+                break;     
         }
-        return null;
     }
     
+        
     public void menuFases(Jugador jugadores) {
         int opcion =8;
         boolean bandera = true;
@@ -457,7 +419,7 @@ public class Motor {
                 opcion = read.nextInt();
                 switch (opcion) {
                     case 1:
-                        getEdificio();
+                        getEdificio(jugadores);
                         bandera = false;
                         break;
                     case 2:
@@ -483,7 +445,7 @@ public class Motor {
                         bandera = false;
                         break;
                     case 7:
-                        atacarEdificios(jugadores);
+                        AtacarEdi(jugadores);
                         bandera = false;
                         break;
                     default:
@@ -497,10 +459,10 @@ public class Motor {
         }
 
     }
+    
     public recursos getRecursos(Jugador jugadores, String recurso){
         return recursosFactory.getRecursos(jugadores.getRaza().getNombre(),recurso);
-            
-        }
+    }
  
     public void RecursosActuales(Jugador jugadores){
         System.out.println("RECURSO 1: "+getRecursos(jugadores, "RECURSO1").getCantidad());
@@ -519,20 +481,7 @@ public class Motor {
         }
     }
     
-    public void atacarEdificios(Jugador jugadores){
-        fase.edificios.add(getEdificioAtacar(jugadores));
-        if (fase.edificios.get(0).getVida() == 100){
-            System.out.println(fase.edificios.get(0).getVida()- ataque);
-            System.out.println("Tu edificio ha sido atacada!!!!!");
-        }
-        else{
-            System.out.println("¡Tu edificio sigue con vida!");
-        }
-    }
-    
-    
-    public  void mostrar() {
-       
+    public  void mostrar() {       
         Bienvenida();
         fase.jugadores.add(new Jugador());
         fase.jugadores.add(new Jugador());
@@ -557,13 +506,13 @@ public class Motor {
                 construir("CENTROMANDO"));
         fase.jugadores.get(1).edificios.add(fase.jugadores.get(1).getRaza().
                 construir("CENTROMANDO"));
-           Random o = new Random();
-        int n = o.nextInt(2);
-        int y;
-        if (n == 0) {
-            y = 1;
+           Random rand = new Random();
+        int aleatorio = rand.nextInt(2);
+        int tur;
+        if (aleatorio == 0) {
+            tur = 1;
         } else {
-            y = 0;
+            tur = 0;
         }
         System.out.println(fase.jugadores.get(0).edificios.size());
         
@@ -571,11 +520,11 @@ public class Motor {
        
             System.out.println("Inicia Fase "+fase.numfase);
             System.out.println("------------------------");
-            System.out.println("Turno de jugador"+(n+1));
-            menuFases(fase.jugadores.get(n));
+            System.out.println("Turno de jugador"+(aleatorio+1));
+            menuFases(fase.jugadores.get(aleatorio));
             System.out.println("------------------------");
-            System.out.println("Turno de jugador"+(y+1));
-            menuFases(fase.jugadores.get(y));
+            System.out.println("Turno de jugador"+(tur+1));
+            menuFases(fase.jugadores.get(tur));
             fase.numfase++;
         
     }
