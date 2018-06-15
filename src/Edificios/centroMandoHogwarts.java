@@ -11,7 +11,7 @@ import Vehiculos.vehiculo;
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
 public class centroMandoHogwarts implements edificio{
-    private int vida;
+    private int vida = 500;
 
     public centroMandoHogwarts(buildercentro builder) {
         this.vida=builder.vida;

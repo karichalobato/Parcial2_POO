@@ -9,7 +9,7 @@ import Vehiculos.vehiculoFactory;
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
 public class salaMenesteres implements edificio {
-    private int vida = 100;
+    private int vida = 175;
     @Override
        public vehiculo crearVehiculo(String tipo){
         return vehiculoFactory.getVehiculo(tipo);
