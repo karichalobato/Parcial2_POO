@@ -3,8 +3,6 @@
  */
 package Milicias;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
