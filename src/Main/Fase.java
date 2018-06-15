@@ -6,6 +6,7 @@ En el se guardan las construcciones creadas
 package Main;
 import Edificios.edificio;
 import Milicias.milicia;
+import Recursos.recursos;
 import Vehiculos.vehiculo;
 import java.util.ArrayList;
 /**
@@ -19,11 +20,13 @@ public class Fase {
     public ArrayList<vehiculo> vehiculos;
     public ArrayList<edificio> edificios;
     
+    
     public Fase() {
         jugadores = new ArrayList<>();
         milicias = new ArrayList<>();
         vehiculos = new ArrayList<>();
         edificios = new ArrayList<>();
+        
         
     }
     
@@ -47,5 +50,6 @@ public class Fase {
     public void setEdis (edificio ataque){
         edificios.add(ataque);
     }
+    
     
 }
