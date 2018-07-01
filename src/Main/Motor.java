@@ -144,7 +144,7 @@ public class Motor {
     }
     
     
-    public raza getraza(){
+    public raza getraza(Jugador jugadores){
         int opcionRaza = 4;
         Scanner read = new Scanner(System.in);
         
@@ -375,7 +375,7 @@ public class Motor {
 
     }
     
-    public void AtacarEdi(Jugador jugadores){
+    public edificio getAtacarEdi(Jugador jugadores){
         
         switch(jugadores.getRaza().getNombre()){
             case "GRYFFINDOR":
@@ -406,6 +406,7 @@ public class Motor {
                 }
                 break;     
         }
+        return null;
     }
     
         
@@ -446,7 +447,8 @@ public class Motor {
                         bandera = false;
                         break;
                     case 7:
-                        AtacarEdi(jugadores);
+                        fase.edificios.add(getAtacarEdi(jugadores));
+                        System.out.println("atacaste");
                         bandera = false;
                         break;
                     default:
@@ -466,9 +468,9 @@ public class Motor {
     }
  
     public void RecursosActuales(Jugador jugadores){
-        System.out.println("RECURSO 1: "+getRecursos(jugadores, "RECURSO1").getCantidad());
-        System.out.println("RECURSO 2: "+getRecursos(jugadores, "RECURSO2").getCantidad());
-        System.out.println("RECURSO 3: "+getRecursos(jugadores, "RECURSO3").getCantidad());
+        System.out.println("RECURSO 1: "+getRecursos(jugadores, "RECURSO1").getCantidad() +" " + getRecursos(jugadores, "RECURSO1").getNombre());
+        System.out.println("RECURSO 2: "+getRecursos(jugadores, "RECURSO2").getCantidad() +" " + getRecursos(jugadores, "RECURSO2").getNombre());
+        System.out.println("RECURSO 3: "+getRecursos(jugadores, "RECURSO3").getCantidad() +" " + getRecursos(jugadores, "RECURSO3").getNombre());
     }
     
     public void sanarMilicias(Jugador jugadores){
@@ -495,15 +497,18 @@ public class Motor {
         fase.jugadores.get(1).setNombre(jugador2);
         System.out.println("Elegi tu raza: " + jugador1);
         while (fase.jugadores.get(0).getRaza() == null) {
-            fase.jugadores.get(0).setRaza(getraza());
+            getraza(fase.jugadores.get(0));
+            
+            //fase.jugadores.get(0).setRaza(getraza());
         }
 
         System.out.println("Elegi tu raza: " + jugador2);
         while (fase.jugadores.get(1).getRaza() == null) {
-            fase.jugadores.get(1).setRaza(getraza());
+            getraza(fase.jugadores.get(1));
+            //fase.jugadores.get(1).setRaza(getraza());
             
         }
-             fase.jugadores.get(0).edificios.add(fase.jugadores.get(0).getRaza().
+        fase.jugadores.get(0).edificios.add(fase.jugadores.get(0).getRaza().
                 construir("CENTROMANDO"));
         fase.jugadores.get(1).edificios.add(fase.jugadores.get(1).getRaza().
                 construir("CENTROMANDO"));
@@ -515,10 +520,9 @@ public class Motor {
         } else {
             tur = 0;
         }
-        System.out.println(fase.jugadores.get(0).edificios.size());
-        
-        System.out.println("***************A JUGAR***************");
-       
+        while(fase.numfase!=0){
+            System.out.println(fase.jugadores.get(0).edificios.size());
+            System.out.println("***************A JUGAR***************");
             System.out.println("Inicia Fase "+fase.numfase);
             System.out.println("------------------------");
             System.out.println("Turno de jugador"+(aleatorio+1));
@@ -526,9 +530,11 @@ public class Motor {
             System.out.println("------------------------");
             System.out.println("Turno de jugador"+(tur+1));
             menuFases(fase.jugadores.get(tur));
-            fase.numfase++;
+
+            fase.numfase++; 
+            
         
     }
-    
+    }
 }   
 
