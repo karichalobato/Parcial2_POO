@@ -7,11 +7,11 @@ package Recursos;
  *
  * @author UCA
  */
-public class Recur1_GrageasBertriBott implements recursos {
+public class Recur1 implements Recursos {
     private String nombre;
     private int cantidad;
 
-    public Recur1_GrageasBertriBott(recursos_Builder Builder) {
+    public Recur1(recursos_Builder Builder) {
         this.nombre = Builder.nombre;
         this.cantidad = Builder.cantidad;
     }
@@ -51,8 +51,8 @@ public class Recur1_GrageasBertriBott implements recursos {
         return this ;
     }
     
-    public Recur1_GrageasBertriBott Builder(){
-        return new Recur1_GrageasBertriBott(this);
+    public Recur1 Builder(){
+        return new Recur1(this);
     }
     
     }

@@ -2,14 +2,14 @@
  * Raza Ravenclow
  */
 package RAZAS;
-import Edificios.centroMandoHogwarts;
-import Edificios.edificio;
-import Edificios.edificioFactory;
+import Edificios.CentroMandoHogwarts;
+import Edificios.Edificio;
+import Edificios.EdificioFactory;
 /**
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
-public class Ravenclow implements raza {
+public class Ravenclow implements Raza {
     
     private String nombre;
 
@@ -24,8 +24,8 @@ public class Ravenclow implements raza {
     }
     
    @Override
-   public edificio construir(String tipo){
-               return edificioFactory.getEdificio(tipo);
+   public Edificio construir(String tipo){
+               return EdificioFactory.getEdificio(tipo);
     }
     
 }

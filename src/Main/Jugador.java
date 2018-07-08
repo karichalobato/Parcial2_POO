@@ -2,9 +2,11 @@
  * Clase jugador y se guardara en un ArrayList
  */
 package Main;
-import Edificios.edificio;
-import RAZAS.raza;
+import Edificios.Edificio;
 import java.util.ArrayList;
+import Milicias.Milicias;
+import RAZAS.Raza;
+import Vehiculos.Vehiculo;
 
 /**
  *
@@ -12,13 +14,17 @@ import java.util.ArrayList;
  */
 public class Jugador {
     private String Nombre;
-    public ArrayList<edificio> edificios;
-    private raza raza;
-    
+    public ArrayList<Edificio> edificios;
+    private Raza raza;
+       public ArrayList<Milicias> milicias;
+    public ArrayList<Vehiculo> vehiculos;
+  
     
 
 public Jugador() {
     edificios = new ArrayList<>();
+    milicias = new ArrayList<>();
+        vehiculos = new ArrayList<>();
     }
 
     
@@ -32,14 +38,13 @@ public Jugador() {
     }
 
 
-    public raza getRaza() {
+    public Raza getRaza() {
         return raza;
     }
 
-    public void setRaza(raza raza) {
+    public void setRaza(Raza raza) {
         this.raza = raza;
     }
     
 }
     
-

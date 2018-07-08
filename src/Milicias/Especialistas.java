@@ -7,7 +7,7 @@ package Milicias;
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
-public class Especialistas implements milicia {
+public class Especialistas implements Milicias {
     private int vida,ataque;
     private String nombre;
 

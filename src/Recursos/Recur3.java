@@ -7,11 +7,11 @@ package Recursos;
  *
  * @author UCA
  */
-public class Recur3_CromosDeOro implements recursos {
+public class Recur3 implements Recursos {
     private String nombre;
     private int cantidad; 
 
-    public Recur3_CromosDeOro(recursos_Builder Builder) {
+    public Recur3(recursos_Builder Builder) {
         this.nombre = Builder.nombre;
         this.cantidad =Builder.cantidad;
     }
@@ -50,8 +50,8 @@ public class Recur3_CromosDeOro implements recursos {
         return this ;
     }
     
-    public Recur3_CromosDeOro Builder(){
-        return new Recur3_CromosDeOro(this);
+    public Recur3 Builder(){
+        return new Recur3(this);
     }
     
     }

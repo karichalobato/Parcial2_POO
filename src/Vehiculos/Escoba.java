@@ -7,7 +7,7 @@ package Vehiculos;
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
-public class Escoba implements vehiculo {
+public class Escoba implements Vehiculo {
     private int vida,ataque;
     private String nombre;
     

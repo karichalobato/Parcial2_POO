@@ -8,7 +8,7 @@ package Milicias;
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
  */
-public class Escuadrones implements milicia {
+public class Escuadrones implements Milicias {
     
     private int vida,ataque;
     private String nombre;

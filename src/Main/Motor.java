@@ -4,20 +4,20 @@ creadas con AbstractFactory y Builder.
  */
 package Main;
 
-import Edificios.edificio;
-import Edificios.edificioFactory;
-import Milicias.milicia;
-import Milicias.miliciasFactory;
+import Edificios.Edificio;
+import Edificios.EdificioFactory;
+import Milicias.MiliciasFactory;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import RAZAS.raza;
-import RAZAS.razaFactory;
-import Recursos.recursos;
-import Recursos.recursosFactory;
-import Vehiculos.vehiculo;
-import Vehiculos.vehiculoFactory;
+import RAZAS.RazaFactory;
+import Recursos.RecursosFactory;
+import Vehiculos.VehiculoFactory;
 import java.util.ArrayList;
 import java.util.Random;
+import Milicias.Milicias;
+import RAZAS.Raza;
+import Recursos.Recursos;
+import Vehiculos.Vehiculo;
 /**
  *
  * @author Karicha Valesska Romero Lobato <00002517@uca.edu.sv>
@@ -27,8 +27,8 @@ public class Motor {
     private static Motor creador;
     Fase fase = new Fase();
     String jugador1,jugador2;
-    int sanacion = 100,ataque = 30;  
-    ArrayList<edificio> edificioRazaGryffindor = new ArrayList<>(),edificioRazaSlytherin = new ArrayList<>(),edificioRazaRavenclow = new ArrayList<>();
+    int sanacion = 100,ataque = 40;  
+    ArrayList<Edificio> edificioRazaGryffindor = new ArrayList<>(),edificioRazaSlytherin = new ArrayList<>(),edificioRazaRavenclow = new ArrayList<>();
     
     private Motor() {
     }
@@ -143,7 +143,11 @@ public class Motor {
         System.out.println("----------------------------------------------------------");
     }
     
-    
+/**
+ *Este es el metodo que asigna la raza al jugar segun como sea su eleccion.
+ * Esta hecho con AbstractFactory
+ *
+ */
     public void getraza(Jugador jugadores){
         int opcionRaza = 4;
         Scanner read = new Scanner(System.in);
@@ -157,22 +161,19 @@ public class Motor {
                 switch (opcionRaza){
                     case 1:
                         flag = false;
-                         jugadores.setRaza(razaFactory.getRaza("GRYFFINDOR"));
+                         jugadores.setRaza(RazaFactory.getRaza("GRYFFINDOR"));
                         break;
                     case 2:
                         flag = false;
-                        jugadores.setRaza(razaFactory.getRaza("SLYTHRIN"));
+                        jugadores.setRaza(RazaFactory.getRaza("SLYTHRIN"));
                         break;
                         
                         
                     case 3:
                         flag = false;
-                         jugadores.setRaza(razaFactory.getRaza("RAVENCLOW"));
+                         jugadores.setRaza(RazaFactory.getRaza("RAVENCLOW"));
                          break;
-                        
-                     
-                    
-                       
+                                                                                    
                 }
                 
             }catch (InputMismatchException e) {
@@ -183,8 +184,12 @@ public class Motor {
         }
    
     }
-    
-    public milicia getMilicia(Jugador jugadores){
+ 
+/**
+ *El metodo getMilicia me retorna la milicia que escoja el jugador.
+ * 
+ */
+    public Milicias getMilicia(Jugador jugadores){
         int opcionMilicia = 7;
         Scanner read = new Scanner(System.in);
         
@@ -195,22 +200,22 @@ public class Motor {
                 opcionMilicia = read.nextInt();
                 switch (opcionMilicia){
                     case 1:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 2:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     case 3:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 4:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     case 5:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 6:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     default:
                         System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
@@ -226,7 +231,7 @@ public class Motor {
         return null;
     }
     
-    public milicia getMiliciaCurada(Jugador jugadores){
+    public Milicias getMiliciaCurada(Jugador jugadores){
         int opcionMilicia = 7;
         Scanner read = new Scanner(System.in);
         
@@ -237,22 +242,22 @@ public class Motor {
                 opcionMilicia = read.nextInt();
                 switch (opcionMilicia){
                     case 1:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 2:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     case 3:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 4:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     case 5:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESCUADRONES");
                         
                     case 6:
-                        return miliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
+                        return MiliciasFactory.getMilicia(jugadores.getRaza().getNombre(),"ESPECIALISTAS");
                         
                     default:
                         System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
@@ -268,7 +273,7 @@ public class Motor {
         return null;
     }
       
-    public vehiculo getVehiculo(){
+    public Vehiculo getVehiculo(){
         int opcionVehiculo = 4;
         Scanner read = new Scanner(System.in);
         
@@ -279,13 +284,13 @@ public class Motor {
                 opcionVehiculo = read.nextInt();
                 switch (opcionVehiculo){
                     case 1:
-                        return vehiculoFactory.getVehiculo("VEHICULO_GRIFFINDOR");
+                        return VehiculoFactory.getVehiculo("VEHICULO_GRIFFINDOR");
                         
                     case 2:
-                        return vehiculoFactory.getVehiculo("VEHICULO_SLYTHERIN");
+                        return VehiculoFactory.getVehiculo("VEHICULO_SLYTHERIN");
                         
                     case 3:
-                        return vehiculoFactory.getVehiculo("VEHICULO_RAVENCLOW");
+                        return VehiculoFactory.getVehiculo("VEHICULO_RAVENCLOW");
                         
                     default:
                         System.out.println("\t\t********** PROGRAMA FINALIZADO **********");
@@ -371,10 +376,7 @@ public class Motor {
         System.out.println("");
 
     }
-    
-   
-    
-        
+         
     public void menuFases(Jugador jugadores,Jugador jugador2) {
         int opcion =8;
         boolean bandera = true;
@@ -417,7 +419,7 @@ public class Motor {
                         break;
                     case 8:
                         
-                        System.out.println("TURNO TERMINADO####");
+                        System.out.println("TURNO TERMINADO!!!!");
                         bandera = false;
                         break;
                     default:
@@ -448,18 +450,22 @@ public class Motor {
                         for (int h = 0; h <fase.jugadores.get(i).edificios.get(j).miliciasa.size(); h++) {
                             fase.jugadores.get(i).edificios.get(j).setVida(fase.jugadores.get(i).edificios.get(j).getVida()
                                     - fase.jugadores.get(i).edificios.get(j).miliciasa.get(h).getAtaque());
+                            if(j!=0){
                             if(fase.jugadores.get(i).edificios.get(j).getVida()<=0){
                                 fase.jugadores.get(i).edificios.get(j).miliciasa.remove(h);
                                 fase.jugadores.get(i).edificios.remove(j);
+                            }
                             }
                         }
                         for (int h = 0; h < fase.jugadores.get(i).edificios.get(j).vehiculosa.size(); h++) {
                             fase.jugadores.get(i).edificios.get(j).setVida(fase.jugadores.get(i).edificios.get(j).getVida()
                                     - fase.jugadores.get(i).edificios.get(j).vehiculosa.get(h).getAtaque());
+                             if(j!=0){
                             if(fase.jugadores.get(i).edificios.get(j).getVida()<=0){
                                 fase.jugadores.get(i).edificios.get(j).vehiculosa.remove(h);
                                 fase.jugadores.get(i).edificios.remove(j);
                             }
+                             }
                         }
                     }
                 
@@ -512,7 +518,7 @@ public class Motor {
             for (int i = 0; i < jugador1.vehiculos.size(); i++) {
                 System.out.println((i + 1) + "--" + jugador1.vehiculos.get(i).getNombre() + "" + jugador1.getRaza().getNombre());
             }
-            System.out.println("@@@ ELIJA EL NUMERO DE MILICIA A USAR");
+            System.out.println(" ELIJA EL NUMERO DE MILICIA A USAR: ");
             int opcion;
             boolean flag = true;
             Scanner leer = new Scanner(System.in);
@@ -545,7 +551,7 @@ public class Motor {
     }
 
     public void menudeataquev(Jugador jugador1, int mili, Jugador jugador2) {
-        System.out.println("@@@ ELIJA EL NUMERO DEL EDIFICIO A ATACAR");
+        System.out.println(" ELIJA EL NUMERO DEL EDIFICIO A ATACAR: ");
         for (int i = 0; i < jugador2.edificios.size(); i++) {
             System.out.println((i + 1) + "--" + jugador2.edificios.get(i).getNombre() + "" + jugador2.getRaza().getNombre()
                     );
@@ -588,7 +594,7 @@ public class Motor {
             for (int i = 0; i < jugador1.milicias.size(); i++) {
                 System.out.println((i + 1) + "--" + jugador1.milicias.get(i).getNombre() + "" + jugador1.getRaza().getNombre());
             }
-            System.out.println("@@@ ELIJA EL NUMERO DE MILICIA A USAR");
+            System.out.println("ELIJA EL NUMERO DE MILICIA A USAR");
             int opcion;
             boolean flag = true;
             Scanner leer = new Scanner(System.in);
@@ -621,7 +627,7 @@ public class Motor {
     }
 
     public void menudeataque(Jugador jugador1, int mili, Jugador jugador2) {
-        System.out.println("@@@ ELIJA EL NUMERO DEL EDIFICIO A ATACAR");
+        System.out.println(" ELIJA EL NUMERO DEL EDIFICIO A ATACAR: ");
         for (int i = 0; i < jugador2.edificios.size(); i++) {
             System.out.println((i + 1) + "--" + jugador2.edificios.get(i).getNombre() + "" + jugador2.getRaza().getNombre()
                     + " Vida " + jugador2.edificios.get(i).getVida());
@@ -656,8 +662,8 @@ public class Motor {
 
     }
     
-    public recursos getRecursos(Jugador jugadores, String recurso){
-        return recursosFactory.getRecursos(jugadores.getRaza().getNombre(),recurso);
+    public Recursos getRecursos(Jugador jugadores, String recurso){
+        return RecursosFactory.getRecursos(jugadores.getRaza().getNombre(),recurso);
     }
  
     public void setRecursos(Jugador jugadores){
@@ -704,9 +710,9 @@ public class Motor {
             acum3 = acum3 + jugadores.edificios.get(0).recur_3.get(i).getCantidad();
 
         }
-        System.out.println(acum1 + " de " + recursosFactory.getRecursos(jugadores.getRaza().getNombre(),"RECURSO1").getNombre());
-        System.out.println(acum2 + " de " + recursosFactory.getRecursos(jugadores.getRaza().getNombre(),"RECURSO2").getNombre());
-        System.out.println(acum3 + " de " + recursosFactory.getRecursos(jugadores.getRaza().getNombre(),"RECURSO3").getNombre());
+        System.out.println(acum1 + " de " + RecursosFactory.getRecursos(jugadores.getRaza().getNombre(),"RECURSO1").getNombre());
+        System.out.println(acum2 + " de " + RecursosFactory.getRecursos(jugadores.getRaza().getNombre(),"RECURSO2").getNombre());
+        System.out.println(acum3 + " de " + RecursosFactory.getRecursos(jugadores.getRaza().getNombre(),"RECURSO3").getNombre());
        
     }
     
@@ -731,7 +737,7 @@ public class Motor {
          }
     }
         public void compra(Jugador jugadores, String Edificio) {
-        edificio temporal = edificioFactory.getEdificio(Edificio);
+        Edificio temporal = EdificioFactory.getEdificio(Edificio);
         if(jugadores.edificios==null){
             jugadores.edificios=new ArrayList<>();
         }
@@ -803,7 +809,7 @@ public class Motor {
 
             }
 
-            jugadores.edificios.add(edificioFactory.getEdificio(Edificio));
+            jugadores.edificios.add(EdificioFactory.getEdificio(Edificio));
             System.out.println("Se ha creado el edificio "+Edificio);
         } else {
             System.out.println("################################");

@@ -8,7 +8,7 @@ package Vehiculos;
  *
  * @author UCA
  */
-public class Buckbeak implements vehiculo{
+public class Buckbeak implements Vehiculo{
     private int vida,ataque;
     private String nombre;
 

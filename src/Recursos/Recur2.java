@@ -7,11 +7,11 @@ package Recursos;
  *
  * @author UCA
  */
-public class Recur2_CortezaDeArbolVital implements recursos {
+public class Recur2 implements Recursos {
     private String nombre;
     private int cantidad; 
 
-    public Recur2_CortezaDeArbolVital(recursos_Builder Builder) {
+    public Recur2(recursos_Builder Builder) {
         this.nombre = Builder.nombre;
         this.cantidad =Builder.cantidad;
     }
@@ -50,8 +50,8 @@ public class Recur2_CortezaDeArbolVital implements recursos {
         return this ;
     }
     
-    public Recur2_CortezaDeArbolVital Builder(){
-        return new Recur2_CortezaDeArbolVital(this);
+    public Recur2 Builder(){
+        return new Recur2(this);
     }
     
     }

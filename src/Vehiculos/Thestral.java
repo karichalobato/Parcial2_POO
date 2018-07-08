@@ -9,7 +9,7 @@ package Vehiculos;
  *
  * @author UCA
  */
-public class Thestral implements vehiculo{
+public class Thestral implements Vehiculo{
     private int vida,ataque;
     private String nombre;
     
